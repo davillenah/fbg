@@ -1,0 +1,28 @@
+/**
+    *   GENERATOR MIXINS FOR MEDIA QUERIES
+    */
+@mixin media($param) {
+    @if $param == null {
+        @content;
+    } @else {
+        @media (min-width: $param) {
+            @content;
+        }
+    }
+}
+/**
+    *   MIXINS FOR POSITIONING
+    */
+/**
+    *   @param width size.
+    */
+@mixin center-and-middle--display-table($param: auto) {
+    display: table;
+    margin: 0 auto;
+    width: $param;
+    & > * {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    @content;
+}

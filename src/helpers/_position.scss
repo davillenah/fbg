@@ -1,0 +1,70 @@
+@each $media-name, $media-size in $col-medias-name {
+    @include media($media-size) {
+        /**
+            *   TEXT POSITION
+            *   .text-left-xs
+            */
+        @each $position in $text-position {
+            .text-#{$position}-#{$media-name} {
+                text-align: $position;
+            }
+        }
+        /**
+            *   DISTRIBUTION POSITION
+            *   .distribution-left-xs
+            */
+        @each $name, $position in $distribution {
+            .distribution-#{$name}-#{$media-name} {
+                @if $position == center {
+                    justify-content: $position;
+                }
+            }
+        }
+        /**
+            *   CONTENT POSITION
+            *   .content-top-xs
+            */
+        @each $name, $position in $positions {
+            .content-#{$name}-#{$media-name} {
+                align-content: $position;
+            }
+        }
+        /**
+            *   ITEMS POSITION
+            *   .items-top-xs
+            */
+        @each $name, $position in $positions {
+            .items-#{$name}-#{$media-name} {
+                align-items: $position;
+            }
+        }
+        /**
+            *   SELF POSITION
+            *   .self-top-xs
+            */
+        @each $name, $position in $positions {
+            .self-#{$name}-#{$media-name} {
+                align-self: $position;
+            }
+        }
+        /**
+            *   HIDDEN ELEMENT
+            *   .xs-hidden-on
+            */
+        .#{$media-name}-hidden-on {
+            display: none;
+        }
+        .#{$media-name}-hidden-off {
+            display: initial;
+        }
+        /**
+            *   ORDER POSITION
+            *   .first-xs
+            */
+        @each $order, $number in $col-order {
+            .#{$order}-#{$media-name} {
+                order: $number;
+            }
+        }
+    }
+}

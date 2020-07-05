@@ -1,0 +1,33 @@
+[class^="col-"] {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+}
+@each $media-name, $media-size in $col-medias-name {
+    @include media($media-size) {
+        @for $i from 0 through 12 {
+            @if ($i == 0) {
+                .col-#{$media-name} {
+                    flex-grow: 1;
+                    flex-basis: 0;
+                    max-width: 100%;
+                }
+            } @else {
+                .col-#{$media-name}-#{$i} {
+                    flex-basis: 100%/12 * $i;
+                    max-width: 100%/12 * $i;
+                }
+            }
+        }
+        @for $i from 0 through 12 {
+            @if ($i == 0) {
+                .col-#{$media-name}-offset-0 {
+                    margin-left: 0;
+                }
+            } @else {
+                .col-#{$media-name}-offset-#{$i} {
+                    margin-left: 100%/12 * $i;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+$col-medias-name: (
+    all: null,
+    xs: 600px,
+    sm: 900px,
+    md: 1200px,
+    lg: 1800px,
+);
+$text-position: (justify, left, center, right);
+$distribution: (
+    left: flex-start,
+    center: center,
+    right: flex-end,
+    between: space-between,
+    around: space-around,
+);
+$positions: (
+    top: flex-start,
+    middle: center,
+    bottom: flex-end,
+    between: space-between,
+    around: space-around,
+    evenly: space-evenly,
+);
+$col-order: (
+    first: -1,
+    last: 1,
+);
