@@ -1,49 +1,53 @@
-@each $media-name, $media-size in $col-medias-name {
-    @include media($media-size) {
+@each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @include media($breakpoint-size) {
         /**
             *   TEXT POSITION
-            *   .text-left-xs
+            *   .xs-text--left
             */
         @each $position in $text-position {
-            .text-#{$position}-#{$media-name} {
+            .#{$breakpoint-name}-text--#{$position} {
                 text-align: $position;
             }
         }
         /**
             *   DISTRIBUTION POSITION
-            *   .distribution-left-xs
+            *   .xs-x-axis--left
             */
         @each $name, $position in $distribution {
-            .distribution-#{$name}-#{$media-name} {
+            .#{$breakpoint-name}-x-axis--#{$name} {
                 @if $position == center {
+                    justify-content: $position;
+                    margin-left: auto;
+                    margin-right: auto;
+                } @else {
                     justify-content: $position;
                 }
             }
         }
         /**
             *   CONTENT POSITION
-            *   .content-top-xs
+            *   .xs-y-axis-content--top
             */
         @each $name, $position in $positions {
-            .content-#{$name}-#{$media-name} {
+            .#{$breakpoint-name}-y-axis-content--#{$name} {
                 align-content: $position;
             }
         }
         /**
             *   ITEMS POSITION
-            *   .items-top-xs
+            *   .xs-y-axis-items--top
             */
         @each $name, $position in $positions {
-            .items-#{$name}-#{$media-name} {
+            .#{$breakpoint-name}-y-axis-items--#{$name} {
                 align-items: $position;
             }
         }
         /**
             *   SELF POSITION
-            *   .self-top-xs
+            *   .xs-y-axis-self--top
             */
         @each $name, $position in $positions {
-            .self-#{$name}-#{$media-name} {
+            .#{$breakpoint-name}-y-axis-self--#{$name} {
                 align-self: $position;
             }
         }
@@ -51,18 +55,18 @@
             *   HIDDEN ELEMENT
             *   .xs-hidden-on
             */
-        .#{$media-name}-hidden-on {
+        .#{$breakpoint-name}-hidden--on {
             display: none;
         }
-        .#{$media-name}-hidden-off {
+        .#{$breakpoint-name}-hidden--off {
             display: initial;
         }
         /**
             *   ORDER POSITION
-            *   .first-xs
+            *   .xs--first
             */
         @each $order, $number in $col-order {
-            .#{$order}-#{$media-name} {
+            .#{$breakpoint-name}--#{$order} {
                 order: $number;
             }
         }
