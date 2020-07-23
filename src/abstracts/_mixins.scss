@@ -4,25 +4,38 @@
 @mixin media($param) {
     @if $param == null {
         @content;
+    } @else if $param == 599px {
+        @media (max-width: $param) {
+            @content;
+        }
     } @else {
         @media (min-width: $param) {
             @content;
         }
     }
 }
-/**
-    *   MIXINS FOR POSITIONING
-    */
-/**
-    *   @param width size.
-    */
-@mixin center-and-middle--display-table($param: auto) {
-    display: table;
-    margin: 0 auto;
-    width: $param;
-    & > * {
-        display: table-cell;
-        vertical-align: middle;
+@mixin xs {
+    @media (max-width: map-get($map: $breakpoints , $key: xs)) {
+        @content;
     }
-    @content;
+}
+@mixin sm {
+    @media (min-width: map-get($map: $breakpoints, $key: sm)) {
+        @content;
+    }
+}
+@mixin md {
+    @media (min-width: map-get($map: $breakpoints, $key: md)) {
+        @content;
+    }
+}
+@mixin lg {
+    @media (min-width: map-get($map: $breakpoints, $key: lg)) {
+        @content;
+    }
+}
+@mixin xl {
+    @media (min-width: map-get($map: $breakpoints, $key: xl)) {
+        @content;
+    }
 }
