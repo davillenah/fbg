@@ -1,4 +1,4 @@
-/*! fbg v1.5.1 | MIT License | github.com/davillenah/fbg */
+/*! fbg v1.0.0 | MIT License | github.com/davillenah/fbg */
 @import "abstracts/variables";
 @import "abstracts/functions";
 @import "abstracts/mixins";
@@ -9,7 +9,7 @@
 @import "components/container";
 /**
     *   GRID COMPONENT
-    *   Version : 1.0.1
+    *   Version : 1.0.0
     */
 @import "components/grid";
 /**
@@ -17,3 +17,4 @@
     *   Version : 1.0.0
     */
 @import "helpers/position";
+@import "helpers/size";

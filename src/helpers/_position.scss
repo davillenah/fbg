@@ -1,72 +1,71 @@
 @each $breakpoint-name, $breakpoint-size in $breakpoints {
     @include media($breakpoint-size) {
         /**
+            *   DISPLAY DISTRIBUTION
+            */
+        .u-#{$breakpoint-name}-display--inline {
+            display: inline;
+        }
+        .u-#{$breakpoint-name}-display--inline-block {
+            display: inline-block;
+        }
+        .u-#{$breakpoint-name}-display--block {
+            display: block;
+        }
+        /**
             *   TEXT POSITION
-            *   .xs-text--left
             */
         @each $position in $text-position {
-            .#{$breakpoint-name}-text--#{$position} {
+            .u-#{$breakpoint-name}-text--#{$position} {
                 text-align: $position;
             }
         }
         /**
-            *   DISTRIBUTION POSITION
-            *   .xs-x-axis--left
+            *   X-AXIS DISTRIBUTION
             */
-        @each $name, $position in $distribution {
-            .#{$breakpoint-name}-x-axis--#{$name} {
-                @if $position == center {
-                    justify-content: $position;
-                    margin-left: auto;
-                    margin-right: auto;
-                } @else {
-                    justify-content: $position;
-                }
+        @each $name, $position in $x-axis {
+            .u-#{$breakpoint-name}-x-axis--#{$name} {
+                justify-content: $position;
             }
         }
         /**
-            *   CONTENT POSITION
-            *   .xs-y-axis-content--top
+            *   Y-AXIS DISTRIBUTION (CONTENT)
             */
-        @each $name, $position in $positions {
-            .#{$breakpoint-name}-y-axis-content--#{$name} {
+        @each $name, $position in $y-axis {
+            .u-#{$breakpoint-name}-y-axis-content--#{$name} {
                 align-content: $position;
             }
         }
         /**
-            *   ITEMS POSITION
-            *   .xs-y-axis-items--top
+            *   Y-AXIS DISTRIBUTION (ITEMS)
             */
-        @each $name, $position in $positions {
-            .#{$breakpoint-name}-y-axis-items--#{$name} {
+        @each $name, $position in $y-axis {
+            .u-#{$breakpoint-name}-y-axis-items--#{$name} {
                 align-items: $position;
             }
         }
         /**
-            *   SELF POSITION
-            *   .xs-y-axis-self--top
+            *   Y-AXIS DISTRIBUTION (SELF)
             */
-        @each $name, $position in $positions {
-            .#{$breakpoint-name}-y-axis-self--#{$name} {
+        @each $name, $position in $y-axis {
+            .u-#{$breakpoint-name}-y-axis-self--#{$name} {
                 align-self: $position;
             }
         }
         /**
             *   HIDDEN ELEMENT
-            *   .xs-hidden-on
             */
-        .#{$breakpoint-name}-hidden--on {
+        .u-#{$breakpoint-name}-hidden--on {
             display: none;
         }
-        .#{$breakpoint-name}-hidden--off {
+        .u-#{$breakpoint-name}-hidden--off {
             display: initial;
         }
         /**
             *   ORDER POSITION
-            *   .xs--first
             */
         @each $order, $number in $col-order {
-            .#{$breakpoint-name}--#{$order} {
+            .u-#{$breakpoint-name}--#{$order} {
                 order: $number;
             }
         }

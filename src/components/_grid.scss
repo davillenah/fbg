@@ -1,30 +1,42 @@
-[class^="col-"] {
-    box-sizing: border-box;
-    flex: 0 0 auto;
-}
+
 @each $breakpoint-name, $breakpoint-size in $breakpoints {
     @include media($breakpoint-size) {
         @for $i from 0 through 12 {
+            $base: 100%/12;
+            $result: ($base * $i);
             @if ($i == 0) {
-                .col-#{$breakpoint-name} {
-                    flex-grow: 1;
+                .#{$breakpoint-name} {
+                    margin: var(--gap) 0 0 var(--gap);
+                    flex: 1 0 auto;
                 }
             } @else {
-                .col-#{$breakpoint-name}-#{$i} {
-                    flex-basis: 100%/12 * $i;
-                    max-width: 100%/12 * $i;
-                    width: 100%/12 * $i;
+                .#{$breakpoint-name}-#{$i} {
+                    margin: var(--gap) 0 0 var(--gap);
+                    flex: 0 0 calc(#{$result} - var(--gap));
+                    max-width: calc(#{$result} - var(--gap));
+                    width: calc(#{$result} - var(--gap));
                 }
             }
         }
         @for $i from 0 through 12 {
             @if ($i == 0) {
-                .col-#{$breakpoint-name}-offset-0 {
+                .#{$breakpoint-name}-push-0 {
                     margin-left: 0;
                 }
             } @else {
-                .col-#{$breakpoint-name}-offset-#{$i} {
-                    margin-left: 100%/12 * $i;
+                .#{$breakpoint-name}-push-#{$i} {
+                    margin-left: calc(#{result} - var(--gap));
+                }
+            }
+        }
+        @for $i from 0 through 12 {
+            @if ($i == 0) {
+                .#{$breakpoint-name}-pull-0 {
+                    margin-right: 0;
+                }
+            } @else {
+                .#{$breakpoint-name}-pull-#{$i} {
+                    margin-right: calc(#{result} - var(--gap));
                 }
             }
         }

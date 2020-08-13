@@ -1,3 +1,6 @@
+:root {
+    --gap: 1rem;
+}
 $breakpoints: (
     all: null,
     xs: 599px,
@@ -7,14 +10,14 @@ $breakpoints: (
     xl: 1800px,
 );
 $text-position: (justify, left, center, right);
-$distribution: (
+$x-axis: (
     left: flex-start,
     center: center,
     right: flex-end,
     between: space-between,
     around: space-around,
 );
-$positions: (
+$y-axis: (
     top: flex-start,
     middle: center,
     bottom: flex-end,

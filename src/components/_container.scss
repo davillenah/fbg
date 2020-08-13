@@ -1,80 +1,25 @@
-.container {
+.row {
     /**BOX-MODEL**/
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-%base {
     /**LAYOUT**/
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     flex: 0 0 100%;
-    /**BOX-MODEL**/
-    box-sizing: border-box;
-}
-.row {
-    @extend %base;
-    /**LAYOUT**/
-    flex-direction: row;
+    /**BOX-SIZING**/
+    margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
+    width: calc(100% + var(--gap));
+    //- max-width: 100%;
     &.reverse {
         /**LAYOUT**/
         flex-direction: row-reverse;
     }
 }
-.col {
-    @extend %base;
-    /**LAYOUT**/
-    flex-direction: column;
-    &.reverse {
-        /**LAYOUT**/
-        flex-direction: column-reverse;
-    }
-}
-@include sm {
-    .container {
-        /**BOX-MODEL**/
-        padding-left: 10rem;
-        padding-right: 10rem;
-    }
-    .not-container {
-        /**BOX-MODEL**/
-        margin-right: -10rem;
-        margin-left: -10rem;
-    }
-}
-@include md {
-    .container {
-        /**BOX-MODEL**/
-        padding-left: 20rem;
-        padding-right: 20rem;
-    }
-    .not-container {
-        /**BOX-MODEL**/
-        margin-right: -20rem;
-        margin-left: -20rem;
-    }
-}
-@include lg {
-    .container {
-        /**BOX-MODEL**/
-        padding-left: 30rem;
-        padding-right: 30rem;
-    }
-    .not-container {
-        /**BOX-MODEL**/
-        margin-right: -30rem;
-        margin-left: -30rem;
-    }
-}
-@include xl {
-    .container {
-        /**BOX-MODEL**/
-        padding-left: 40rem;
-        padding-right: 40rem;
-    }
-    .not-container {
-        /**BOX-MODEL**/
-        margin-right: -40rem;
-        margin-left: -40rem;
-    }
+[class*="all-"],
+[class*="xs-"],
+[class*="sm-"],
+[class*="md-"],
+[class*="lg-"],
+[class*="xl-"] {
+    box-sizing: border-box;
 }

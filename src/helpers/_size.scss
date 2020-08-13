@@ -1,0 +1,59 @@
+/**
+    *   BOX SIZES - HELPERS
+    */
+@each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @include media($breakpoint-size) {
+        .u-#{$breakpoint-name}-height {
+            &-min-screen {
+                min-height: 100vh;
+            }
+            &-full-screen {
+                height: 100vh;
+            }
+            &-half-screen {
+                height: 50vh;
+            }
+            &-max-screen {
+                max-height: 100vh;
+            }
+            &-min-block {
+                min-height: 100%;
+            }
+            &-full-block {
+                height: 100%;
+            }
+            &-half-block {
+                height: 50%;
+            }
+            &-max-block {
+                max-height: 100%;
+            }
+        }
+        .u-#{$breakpoint-name}-width {
+            &-min-screen {
+                min-width: 100vw;
+            }
+            &-full-screen {
+                width: 100vw;
+            }
+            &-half-screen {
+                width: 50vw;
+            }
+            &-max-screen {
+                max-width: 100vw;
+            }
+            &-min-block {
+                min-width: 100%;
+            }
+            &-full-block {
+                width: 100%;
+            }
+            &-half-block {
+                width: 50%;
+            }
+            &-max-block {
+                max-width: 100%;
+            }
+        }
+    }
+}
