@@ -12,10 +12,6 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# 5 space indentation
-[*.{html,htm,php}]
-indent_size = 5
-
 # Tab indentation (no size specified)
 [*.md]
 indent_style = tab
