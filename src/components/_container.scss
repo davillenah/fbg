@@ -3,12 +3,13 @@
     box-sizing: border-box;
     /**LAYOUT**/
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex: 0 0 100%;
+    flex-flow: row wrap;
+    flex: 0 0 calc(100% + var(--gap));
     /**BOX-SIZING**/
-    margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
-    width: calc(100% + var(--gap));
+    margin-top: calc(-1 * var(--gap));
+    margin-left: calc(-1 * var(--gap));
+    //margin: 0 calc(-1 * var(--gap)) 0 calc(-1 * var(--gap));
+    max-width: calc(100% + var(--gap));
     //- max-width: 100%;
     &.reverse {
         /**LAYOUT**/

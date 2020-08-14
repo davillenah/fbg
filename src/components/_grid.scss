@@ -6,12 +6,14 @@
             $result: ($base * $i);
             @if ($i == 0) {
                 .#{$breakpoint-name} {
-                    margin: var(--gap) 0 0 var(--gap);
+                    margin-top: var(--gap);
+                    margin-left: var(--gap);
                     flex: 1 0 auto;
                 }
             } @else {
                 .#{$breakpoint-name}-#{$i} {
-                    margin: var(--gap) 0 0 var(--gap);
+                    margin-top: var(--gap);
+                    margin-left: var(--gap);
                     flex: 0 0 calc(#{$result} - var(--gap));
                     max-width: calc(#{$result} - var(--gap));
                     width: calc(#{$result} - var(--gap));
@@ -19,24 +21,28 @@
             }
         }
         @for $i from 0 through 12 {
+            $base: 100%/12;
+            $result: ($base * $i);
             @if ($i == 0) {
                 .#{$breakpoint-name}-push-0 {
-                    margin-left: 0;
+                    margin-left: var(--gap);
                 }
             } @else {
                 .#{$breakpoint-name}-push-#{$i} {
-                    margin-left: calc(#{result} - var(--gap));
+                    margin-left: calc(#{$result} + var(--gap));
                 }
             }
         }
         @for $i from 0 through 12 {
+            $base: 100%/12;
+            $result: ($base * $i);
             @if ($i == 0) {
                 .#{$breakpoint-name}-pull-0 {
                     margin-right: 0;
                 }
             } @else {
                 .#{$breakpoint-name}-pull-#{$i} {
-                    margin-right: calc(#{result} - var(--gap));
+                    margin-right: #{$result};
                 }
             }
         }
