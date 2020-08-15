@@ -1,4 +1,3 @@
-
 @each $breakpoint-name, $breakpoint-size in $breakpoints {
     @include media($breakpoint-size) {
         @for $i from 0 through 12 {
@@ -6,17 +5,21 @@
             $result: ($base * $i);
             @if ($i == 0) {
                 .#{$breakpoint-name} {
+                    /**BOX-SIZING**/
                     margin-top: var(--gap);
                     margin-left: var(--gap);
+                    /**LAYOUT**/
                     flex: 1 0 auto;
                 }
             } @else {
                 .#{$breakpoint-name}-#{$i} {
+                    /**BOX-SIZING**/
                     margin-top: var(--gap);
                     margin-left: var(--gap);
-                    flex: 0 0 calc(#{$result} - var(--gap));
-                    max-width: calc(#{$result} - var(--gap));
                     width: calc(#{$result} - var(--gap));
+                    max-width: calc(#{$result} - var(--gap));
+                    /**LAYOUT**/
+                    flex: 0 0 calc(#{$result} - var(--gap));
                 }
             }
         }
@@ -25,10 +28,12 @@
             $result: ($base * $i);
             @if ($i == 0) {
                 .#{$breakpoint-name}-push-0 {
+                    /**BOX-SIZING**/
                     margin-left: var(--gap);
                 }
             } @else {
                 .#{$breakpoint-name}-push-#{$i} {
+                    /**BOX-SIZING**/
                     margin-left: calc(#{$result} + var(--gap));
                 }
             }
@@ -38,10 +43,12 @@
             $result: ($base * $i);
             @if ($i == 0) {
                 .#{$breakpoint-name}-pull-0 {
+                    /**BOX-SIZING**/
                     margin-right: 0;
                 }
             } @else {
                 .#{$breakpoint-name}-pull-#{$i} {
+                    /**BOX-SIZING**/
                     margin-right: #{$result};
                 }
             }
